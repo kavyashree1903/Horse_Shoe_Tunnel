@@ -19,7 +19,7 @@ from PIL import Image
 
 
 st.write("""
-# Prediction of Seismic Bearing Capacity Factor
+# Normalized Critical Support Pressure
 ***
 """)
 
@@ -141,14 +141,11 @@ def model():
 prediction=model()
 answer = str(round(prediction[0], 3))
 
-st.header('Predicted Seismic Bearing Capacity Factor')
+st.header('Predicted Normalized Critical Support Pressure')
 st.subheader("Regressor Used: XGBoost")
-st.write('Seismic Bearing Capacity Factor (N) =', answer)
+st.write('Normalized Critical Support Pressure (σci/γDc) =', answer)
 st.write('---')
 st.header('Relative Importance of Each Feature in the XGBoost Model')
 
 image = Image.open('RI.png')
 st.image(image, use_column_width=True)
-
-
-
